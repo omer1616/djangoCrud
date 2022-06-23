@@ -3,7 +3,7 @@
   <component name="WebServers">
     <option name="servers">
       <webServer id="e8634678-3244-4254-801a-70da3fa41f53" name="ccli">
-        <fileTransfer rootFolder="/home/kullanici1/CCApp_test2" accessType="SFTP" host="93.89.73.104" port="22" sshConfigId="c55f6204-8aa2-401c-932c-007ad4c2773c" sshConfig="kullanici1@93.89.73.104:22 password">
+        <fileTransfer rootFolder="/home/kullanici1/CCApp" accessType="SFTP" host="93.89.73.104" port="22" sshConfigId="c55f6204-8aa2-401c-932c-007ad4c2773c" sshConfig="kullanici1@93.89.73.104:22 password">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>
