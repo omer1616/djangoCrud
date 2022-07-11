@@ -10,7 +10,7 @@
         </fileTransfer>
       </webServer>
       <webServer id="98fc4350-235a-483f-9c50-84f16634f870" name="ccui">
-        <fileTransfer rootFolder="/home/kullanici1/CCApp" accessType="SFTP" host="93.89.73.104" port="22" sshConfigId="ad01693c-d37a-40a2-94f3-fb0a019f21c8" sshConfig="kullanici1@93.89.73.104:22 password">
+        <fileTransfer rootFolder="/home/kullanici1/CCEdu_test2" accessType="SFTP" host="93.89.73.104" port="22" sshConfigId="ad01693c-d37a-40a2-94f3-fb0a019f21c8" sshConfig="kullanici1@93.89.73.104:22 password">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>
