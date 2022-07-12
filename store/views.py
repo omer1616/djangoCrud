@@ -1,6 +1,9 @@
+import json
+
 from django.shortcuts import render
 from .models import *
 from django.core.paginator import Paginator
+from django.http import JsonResponse
 
 
 # Create your views here.
@@ -40,3 +43,13 @@ def store(request):
 def checkout(request):
     context = {}
     return render(request, "store/checkout.html", context)
+
+
+def update_item(request):
+    data = json.loads(request.body)
+    product_id = data['productId']
+    action = data['action']
+    print('product_id: ', product_id)
+    print('action: ', action)
+
+    return JsonResponse("item was added", safe=False)
