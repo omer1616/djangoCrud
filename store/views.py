@@ -17,17 +17,28 @@ def cart(request):
         customer = request.user.customer
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
         items = order.orderitem_set.all()
-
+        cart_items =  order.get_cart_items
     else:
         # Create empty cart for now for non-logged in user
         items = []
         order = {'get_cart_total': 0, 'get_cart_items': 0}
+        cart_items = order['get_cart_items']
 
-    context = {'items': items, 'order': order}
+    context = {'items': items, 'order': order, 'cart_items':  cart_items}
     return render(request, 'store/cart.html', context)
 
 
 def store(request):
+    if request.user.is_authenticated:
+        customer = request.user.customer
+        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        cart_items = order.get_cart_items
+
+    else:
+        # Create empty cart for now for non-logged in user
+
+        order = {'get_cart_total': 0, 'get_cart_items': 0}
+        cart_items = order['get_cart_items']
     products = Product.objects.all()
     paginator = Paginator(products, 2)  # Show 25 contacts per page.
 
@@ -35,13 +46,25 @@ def store(request):
     products = paginator.get_page(page_number)
 
     context = {
-        'products': products
+        'products': products,
+        'cart_items': cart_items
     }
     return render(request, "store/store.html", context)
 
 
 def checkout(request):
-    context = {}
+    if request.user.is_authenticated:
+        customer = request.user.customer
+        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        items = order.orderitem_set.all()
+        cart_items = order.get_cart_items
+    else:
+        # Create empty cart for now for non-logged in user
+        items = []
+        order = {'get_cart_total': 0, 'get_cart_items': 0, 'shipping': False}
+        cart_items = order['get_cart_items']
+
+    context = {'items': items, 'order': order, 'cart_items': cart_items}
     return render(request, "store/checkout.html", context)
 
 
